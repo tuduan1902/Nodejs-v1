@@ -18,14 +18,7 @@ app.use(json())
 app.use(urlencoded({ extended: true }))
 app.use(morgan('dev'))
 
-app.get('/', (req,res) => {
-  res.send({ message: 'hello' })
-})
-
-app.post('/', (req,res) => {
-  console.log(req.body)
-  res.send({ message : 'ok '})
-})
+app.use('/api/item', itemRouter)
 
 export const start = () => {
   app.listen(3000, () => {
